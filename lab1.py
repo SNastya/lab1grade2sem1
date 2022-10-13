@@ -114,14 +114,16 @@ def main():
         def create(clas):
             try:
                 if clas == "Student":
+
                     try:
                         print("Введите Имя Фамилия Номер телефона Почта Среднюю оценку через пробел")
                         param = input()
                         elem = Student(param.split(' '))
                         persons.append(elem)
                         
-                    except ValueError:
+                    except Exception:
                         print("Что-то пошло не так")
+
                 elif clas == "Professor":
                     print("Введите Имя Фамилия Номер телефона Почта Кафедру Должность через пробел")
                     param = input()
@@ -131,7 +133,6 @@ def main():
                 print("Вы что-то ввели неверно:( Попробуйте еще раз")
 
         def add():
-
             try:
                 print("Введите название группы")
                 manager = Manager(input())
@@ -196,6 +197,8 @@ def main():
                 for i in persons:
                     if isinstance(i, Professor):
                         i._group = group
+            else:
+                print("Вы что-то ввели неверно. Попробуйте еще раз")
 
 
         while True:
